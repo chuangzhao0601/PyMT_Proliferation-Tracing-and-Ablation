@@ -16,7 +16,7 @@ m.s.genes <- convertHumanGeneList(cc.genes$s.genes)
 m.g2m.genes <- convertHumanGeneList(cc.genes$g2m.genes)
 
 #Tcell/NK Reduction
-immune <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/immune_annotion.rds")
+immune <- readRDS("../immune_annotion.rds")
 Tcell <- subset(immune,celltype%in%c("Tcell","NK"))
 rm(immune)
 
@@ -82,7 +82,7 @@ Tcell$subcelltype1 <- Tcell@active.ident
 
 
 #CD8T/NK Reduction
-Tcell <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/T_NK/annotion_Tcell.rds")
+Tcell <- readRDS("../annotion_Tcell.rds")
 DimPlot(Tcell, reduction = "umap",label = TRUE)
 unique(Tcell$subcelltype1)
 CD8 <- subset(Tcell,subcelltype1%in%c("CD8","NK"))
@@ -193,4 +193,4 @@ Idents(Tcell) <-'subcelltype2'
 DimPlot(Tcell, reduction = "umap",label = TRUE)
 
 #Save the RDS
-saveRDS(Tcell,"Tcell_final_annotion.rds")
+saveRDS(Tcell,"PyMT_T/NK.rds")
