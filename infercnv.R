@@ -48,7 +48,7 @@ geneInfor <- geneInfor[!duplicated(geneInfor[,1]), ]
 dat <- dat[rownames(dat) %in% geneInfor[,1], ]
 
 # Set output dir
-setwd("/home/shixi7/zhaochuang/project/pymt/PyMT/normal-annotion/infercnv2/")
+setwd("../infercnv/")
 
 # Save required input files
 write.table(dat, file = "expFile.txt", sep = "\t", quote = FALSE)
