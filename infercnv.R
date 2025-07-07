@@ -12,7 +12,7 @@ library(ggpubr)
 library(tidyr)
 
 # Load Seurat object
-all <- readRDS("/home/shixi7/zhaochuang/project/pymt/PyMT/normal-annotion/seurat/Epithelial/all.rds")
+all <- readRDS("../PyMT_all.rds")
 
 # Extract reference immune cells (Macrophages)
 Immune_cells <- rownames(all@meta.data)[all$celltype == 'Macrophage']
