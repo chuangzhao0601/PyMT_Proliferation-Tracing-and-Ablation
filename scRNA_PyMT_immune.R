@@ -16,7 +16,7 @@ library(scater)
 #create Seurat objects
 samples <- c("A0305","A0306","A0307","A0308")
 seurat_list <- lapply(samples, function(sample){
-  cur_data <- Read10X(data.dir = paste0("/home/shixi7/zhaochuang/project/pymt/immune/download_CD45/",sample))
+  cur_data <- Read10X(data.dir = paste0("../download_CD45/",sample))
   cur_seurat <- CreateSeuratObject(
     counts = cur_data,
     min.cells=3,
@@ -130,6 +130,3 @@ immune <- subset(immune,celltype!="Nonimmune")
 
 #Save the RDS
 saveRDS(immune,"immune_annotion.rds")
-
-#Read the RDS
-immune <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/immune_annotion.rds")
