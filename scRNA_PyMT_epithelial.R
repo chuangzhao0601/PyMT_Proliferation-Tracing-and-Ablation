@@ -16,7 +16,7 @@ library(scater)
 #create Seurat objects
 samples <- c("A0305","A0306","A0307","A0308")
 seurat_list <- lapply(samples, function(sample){
-  cur_data <- Read10X(data.dir = paste0("/home/shixi7/zhaochuang/project/pymt/PyMT/download_data/",sample))
+  cur_data <- Read10X(data.dir = paste0("../PyMT/download_data/",sample))
   cur_seurat <- CreateSeuratObject(
     counts = cur_data,
     min.cells=3,
@@ -117,8 +117,8 @@ new.cluster.ids <- c("0"="Epithelial",
                      "19"="Immune", 
                      "20"="Endothelial",
                      "21"="Pericyte", 
-                     "22"="SMC", 
-                     "23"="SMC",
+                     "22"="Myoepithelial", 
+                     "23"="Myoepithelial",
                      "24"="Uncharacterized",
                      "25"="Fibroblast",
                      "26"="Epithelial",
@@ -129,13 +129,13 @@ nonimmune <- RenameIdents(nonimmune, new.cluster.ids)
 nonimmune$celltype <- nonimmune@active.ident
 
 #Extract the real nonimmune cells
-nonimmune <- subset(nonimmune,celltype%in%c("Epithelial","Fibroblast","SMC","Endothelial","Pericyte"))
+nonimmune <- subset(nonimmune,celltype%in%c("Epithelial","Fibroblast","Myoepithelial","Endothelial","Pericyte"))
 
 #Save the RDS
 saveRDS(nonimmune,"nonimmune_annotion.rds")
 
 #Annotion the Epithelial####
-nonimmune <- readRDS("/home/shixi7/zhaochuang/project/pymt/PyMT/normal-annotion/seurat/nonimmune_annotion.rds")
+nonimmune <- readRDS("../nonimmune_annotion.rds")
 unique(nonimmune$celltype)
 Epithelial <- subset(nonimmune,celltype%in%c("Epithelial"))
 rm(nonimmune)
@@ -191,4 +191,4 @@ Epithelial <- RenameIdents(Epithelial, new.cluster.ids)
 Epithelial$subcelltype1 <- Epithelial@active.ident
 
 #Save the RDS
-saveRDS(Epithelial,"Epithelial_annotion.rds")
+saveRDS(Epithelial,"PyMT_Epithelial.rds")
