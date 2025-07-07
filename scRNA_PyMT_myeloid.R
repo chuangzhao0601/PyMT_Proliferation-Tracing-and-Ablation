@@ -16,7 +16,7 @@ m.s.genes <- convertHumanGeneList(cc.genes$s.genes)
 m.g2m.genes <- convertHumanGeneList(cc.genes$g2m.genes)
 
 #Myeloid Cells Reduction
-immune <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/immune_annotion.rds")
+immune <- readRDS("../immune_annotion.rds")
 unique(immune$celltype)
 Myeloid <- subset(immune,celltype%in%c("Monocyte","Macrophage","Neutrophil","DC"))
 rm(immune)
@@ -83,7 +83,7 @@ saveRDS(Myeloid,"Myeloid_annotion.rds")
 
 
 #Annotion the MPS
-Myeloid <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/Myeloid/Myeloid_annotion.rds")
+Myeloid <- readRDS("../Myeloid_annotion.rds")
 unique(Myeloid$subcelltype1)
 MPS <- subset(Myeloid,subcelltype1%in%c("Macrophage","Monocyte"))
 rm(Myeloid)
@@ -204,7 +204,7 @@ saveRDS(MPS,"MPS_annotion.rds")
 
 
 #Neutrophil Reduction
-Myeloid <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/Myeloid/Myeloid_annotion.rds")
+Myeloid <- readRDS("../Myeloid_annotion.rds")
 unique(Myeloid$subcelltype1)
 Neutrophil <- subset(Myeloid,subcelltype1%in%c("Neutrophil"))
 
@@ -302,8 +302,4 @@ Myeloid@meta.data$subcelltype2[Myeloid@meta.data$subcelltype1 == "DC3"] <- "DC3_
 
 #Plot and Save the RDS
 DimPlot(Myeloid, reduction = "umap",label = TRUE,group.by = "subcelltype2")
-saveRDS(Myeloid,"Myeloid_final_annotion.rds")
-
-#Read the RDS
-Myeloid <- readRDS("/home/shixi7/zhaochuang/project/pymt/immune/seurat/decontX_immune/Myeloid/Myeloid_final_annotion.rds")
-DimPlot(Myeloid, reduction = "umap",label = TRUE)
+saveRDS(Myeloid,"PyMT_Myeloid.rds")
