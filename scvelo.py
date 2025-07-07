@@ -8,7 +8,7 @@ import loompy as lmp
 import anndata
 import os
 #load loom
-loom_data = scv.read('/home/shixi7/zhaochuang/project/pymt/PyMT/download_data/loom/PyMT.loom', cache=False)
+loom_data = scv.read('../PyMT.loom', cache=False)
 
 #rename the barcodes
 loom_data.obs = loom_data.obs.rename(index = lambda x: x.replace('PyMT:','').replace('x', ''))
@@ -96,5 +96,5 @@ scv.pl.velocity_embedding_stream(adata, basis='umap',color = "celltype", palette
 scanpy.pl.violin(adata, keys='latent_time',groupby="celltype",save='scVelo-violin-latent_time2.png')
 
 # Generate plot with UMAP and latent time
-scv.pl.velocity_embedding_stream(adata,basis="umap",color="latent_time",title='Myeloid',fontsize=20,legend_fontsize=20,min_mass=2,color_map="plasma",save='scVelo-umap-latent_time2.png')
+scv.pl.velocity_embedding_stream(adata,basis="umap",color="latent_time",title='Epithelial',fontsize=20,legend_fontsize=20,min_mass=2,color_map="plasma",save='scVelo-umap-latent_time2.png')
 
