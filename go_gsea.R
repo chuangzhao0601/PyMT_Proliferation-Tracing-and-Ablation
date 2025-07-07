@@ -20,7 +20,7 @@ suppressMessages({
 })
 
 # Load Seurat object for epithelial cells
-Epithelial <- readRDS("/home/shixi7/zhaochuang/project/pymt/PyMT/normal-annotion/seurat/Epithelial/Epithelial_annotion.rds")
+Epithelial <- readRDS("../PyMT_Epithelial.rds")
 unique(Epithelial$subcelltype1)
 
 # Define cell groups: group 1 = "Cancer_cells_c10_Ly6a", group 2 = all others
