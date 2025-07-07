@@ -1,2 +1,5 @@
 Modeling Tumor Relapse Using Proliferation Tracing and Ablation Transgenic Mouse
-we employed a dual recombinase-mediated genetic system to genetically trace and ablate proliferating cells in a Polyoma Virus middle T antigen (PyMT)-induced spontaneous murine breast cancer model.We then applied single-cell RNA sequencing (scRNA-seq) to unbiasedly compare the tumor ecosystems of the primary and relapsed PyMT tumors.
+
+
+
+We employed a dual recombinase-mediated genetic system to genetically trace and ablate proliferating cells in a Polyoma Virus middle T antigen (PyMT)-induced spontaneous murine breast cancer model.We then applied single-cell RNA sequencing (scRNA-seq) to unbiasedly compare the tumor ecosystems of the primary and relapsed PyMT tumors.
