@@ -5,16 +5,16 @@ library(CellChat)
 library(Seurat)
 library(future)
 plan("multicore", workers = 4)
-setwd("/home/shixi7/zhaochuang/project/pymt/cellchat_cellphone/cellchat/")
+setwd("../cellchat/")
 
 # ---------------------------------------------------------------------------
 # 1. Load Seurat object and set cell type
 # ---------------------------------------------------------------------------
-all <- readRDS("/home/shixi7/zhaochuang/project/pymt/PyMT/normal-annotion/seurat/Epithelial/all.rds")
+all <- readRDS("../PyMT_all.rds")
 
 # Define cell type order
 ctype_levels <- c(
-  "Epithelial", "SMC", "Fibroblast", "Pericyte", "Endothelial",
+  "Epithelial", "Myoepithelial", "Fibroblast", "Pericyte", "Endothelial",
   "Tcell", "NK", "Bcell", "Monocyte", "Macrophage", "Neutrophil", "DC"
 )
 all$celltype <- factor(all$celltype, levels = ctype_levels)
@@ -62,7 +62,7 @@ cellchat <- computeCommunProbPathway(cellchat)
 # ---------------------------------------------------------------------------
 pathways.show <- "CXCL"
 group.colors <- c(
-  Epithelial = "#D73027", SMC = "#F46D43", Fibroblast = "#FEB24C", Pericyte = "#FEE08B",
+  Epithelial = "#D73027", Myoepithelial = "#F46D43", Fibroblast = "#FEB24C", Pericyte = "#FEE08B",
   Endothelial = "#FCBBA1", Tcell = "#6BAED6", NK = "#08519C", Bcell = "#99D8C9",
   Monocyte = "#7FBC41", Macrophage = "#006D2C", Neutrophil = "#66C2A4", DC = "#00441B"
 )
