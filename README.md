@@ -6,6 +6,6 @@ we employed a dual recombinase-mediated genetic system to genetically trace and 
 
 ## Processed Data Download
 
-The processed RData objects have been uploaded to Zenodo（10.5281/zenodo.15826763.）.
+The processed RData objects have been uploaded to Zenodo（[10.5281/zenodo.15826763.](https://zenodo.org/records/15826764)）.
 
 Should you have any question, please do not hesitate to contact Chuang Zhao (zhaochuang@sysucc.org.cn).
